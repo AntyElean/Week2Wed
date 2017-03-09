@@ -1,0 +1,69 @@
+<h2>Home</h2>
+<form name="employeeIntake" novalidate ng-submit="controller.addEmp()">
+    <div>
+        <label>
+            First Name:
+            <input name="employeeFirstName" ng-model="controller.employee.fName" type="text" required />
+           
+             <span ng-show="employeeIntake.employeeFirstName.$touched && employeeIntake.employeeFirstName.$error.required" class="has-error">
+                First Name Required!!!
+             </span>
+
+        </label>
+    </div>
+    <br />
+    <div>
+        <label>
+            Last Name:
+            <input name="employeeLastName" ng-model="controller.employee.lName" type="text" required />
+           
+             <span ng-show="employeeIntake.employeeLastName.$touched && employeeIntake.employeeLastName.$error.required"class="has-error">
+                Last Name Required!!!
+            </span>  
+                
+        </label>
+    </div>
+    <br />
+    <div>
+        <label>
+            Age:
+            <input name="employeeAge" ng-model="controller.employee.age" type="number" required />
+
+            <span ng-show="employeeIntake.employeeAge.$touched && employeeIntake.employeeAge.$error.required" class="has-error">
+                Age Required!!!
+            </span>
+            <span ng-show="employeeIntake.employeeAge.$touched && employeeIntake.employeeAge.$error.number" class="has-error">
+                Age needs to be a number!!!
+            </span>
+        </label>
+    </div>
+    <br />
+    <div>
+        <label>
+Full Time/ Part Time:
+            <select name="fop" ng-model="controller.employee.fop">
+                <option value="full">Full Time</option>
+                <option value="part">Part Time</option>
+            </select>
+            <span ng-show="controller.employee.fop='full' && controller.employee.soh='hourly'.$error ">
+                Full time is Salary!
+            </span>
+        </label>
+        <br />
+        <label>
+            Salary/ Hourly:
+            <select name="soh" ng-model="controller.employee.soh">
+                <option value="salary">Salary</option>
+                <option value="hourly">Hourly</option>
+            </select>
+            <input name="pay" ng-model="controller.employee.pay" type="number" required />
+            <span ng-show="employeeIntake.pay.$touched && employeeIntake.pay.$error.required" class="has-error">
+                Salary/Hourly pay Required!!!
+            </span>
+            <span ng-show="employeeIntake.pay.$touched && employeeIntake.pay.$error.number"class="has-error">
+                Salary/Hourly needs a number value!!!
+            </span>
+        </label>
+    </div>
+    <input type="submit" value="Submit Employee" />
+</form>
